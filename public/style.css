@@ -1,0 +1,127 @@
+/*https://chatgpt.com/c/67c63df0-1678-8008-bf6d-57b8c969a793 */
+/* General Styles */
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+    height: 100vh; /* Make sure the body takes up full height */
+    overflow: hidden; /* Prevent scrolling for a cleaner look */
+}
+
+/* Navbar Styles */
+.navbar {
+    background-color: #2C3E50; /* Dark blue-gray color for the navbar */
+    position: relative;
+    z-index: 2; /* Keep navbar above the blurred background */
+}
+
+.navbar-brand {
+    font-size: 1.8rem;
+    color: #fff;
+}
+
+.navbar-nav .nav-link {
+    color: #ecf0f1; /* Light text color */
+    font-size: 1.1rem;
+}
+
+.navbar-nav .nav-link:hover {
+    color: #f39c12; /* Gold color on hover */
+}
+
+/* Background Image and Blur Effect */
+body::before {
+    content: "";
+    background-image: url('pictures/Court.png'); /* Replace with your court image */
+    background-size: cover;
+    background-position: center;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    filter: blur(8px); /* Apply blur effect to background */
+    z-index: 1; /* Ensure the background stays behind content */
+    height: 100vh;
+}
+
+/* Container to hold content on top of the blurred background */
+.container {
+    position: relative;
+    z-index: 2; /* Ensure content stays above the background */
+    padding: 20px;
+    width: 90%;
+    max-width: 1200px;
+}
+
+/* Cards Section */
+.card {
+    transition: all 0.3s ease; /* Smooth transition for hover effect */
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    margin-bottom: 20px;
+}
+
+.card:hover {
+    transform: scale(1.05); /* Slight zoom effect on hover */
+}
+
+/* Card Content */
+.card-body {
+    height: 150px; /* Set the initial height */
+    overflow: hidden;
+    position: relative;
+}
+
+.card-body p {
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 4; /* Limit text to 4 lines */
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+/* Show full text when hovered */
+.card:hover .card-body p {
+    -webkit-line-clamp: unset; /* Remove the text limit on hover */
+    height: auto;
+}
+
+/* Background for Cards */
+.card img {
+    max-height: 250px;
+    object-fit: cover;
+    width: 100%;
+}
+
+/* Hover Effect on Cards */
+.card-body h5 {
+    color: #333;
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+}
+
+.card-body p {
+    color: #555;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .navbar-brand {
+        font-size: 1.5rem;
+    }
+    .navbar-nav .nav-link {
+        font-size: 1rem;
+    }
+    .container {
+        width: 100%;
+    }
+    .card-body {
+        height: 130px;
+    }
+}
+
